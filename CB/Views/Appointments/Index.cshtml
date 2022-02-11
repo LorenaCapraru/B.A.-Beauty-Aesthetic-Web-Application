@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CB.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">Appointments</h1>
+@using (Html.BeginForm("Index", "Appointments", FormMethod.Get))
+{
+
+    @Html.TextBox("search")
+    <input type="submit" value="Search" />
+
+}
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.AppointmentId)
+            </th>
+            <th width="20%">
+                @Html.DisplayNameFor(model => model.Patient.FullName)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th width="10%">
+                @Html.DisplayNameFor(model => model.SubService)
+            </th>
+
+            <th width="30%">
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th width="5%">
+                @Html.DisplayNameFor(model => model.Docs)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubService.SubServiceName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Docs)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AppointmentId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AppointmentId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AppointmentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

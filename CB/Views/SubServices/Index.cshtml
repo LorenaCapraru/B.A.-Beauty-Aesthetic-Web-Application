@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CB.Models.SubService>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">SubServices</h1>
+
+<p>
+    <a class="btn btn-outline-primary"  asp-action="Create">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubServiceName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubServiceName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SubServiceId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SubServiceId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SubServiceId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
