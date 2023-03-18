@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:5000",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
+
+// {
+//     "name": "Chrome",
+//     "type": "chrome",
+//     "runtimeExecutable": "./path/to/chrome.exe",
+//     "request": "launch",
+//     "url": "http://localhost:5000",
+//     "webRoot": "${workspaceRoot}",          // maybe you need to adjust this entry to "C:\Users\viru babu\Documents\MVCcoreLinkdin"
+//     "preLaunchTask": "shell: dotnet run"           // add prelaunch task  start (defined in tasks.json)
+// }
